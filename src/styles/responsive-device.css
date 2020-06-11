@@ -1,24 +1,28 @@
 .device {
-    position: absolute;
-    transform: scale(1);
-    transform-origin: 30% 0%;
-    z-index: 1;
-  }
-  
-  @media only screen and (max-width: 1024px) {
+  /* width: 428; height: 868 */
+  position: absolute;
+  transform: scale(0.75);
+  transform-origin: calc(50% - 214px) 0%;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 1024px) {
     .device {
       transform: scale(0.75);
+      transform-origin: calc(50% - 160px) 0%;
     }
-  }
+}
   
-  @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .device {
       transform: scale(0.66);
+      transform-origin: calc(50% - 107px) 0%;
     }
-  }
+}
   
-  @media only screen and (max-width: 640px) {
+@media only screen and (max-width: 640px) {
     .device {
       transform: scale(0.46);
+      transform-origin: calc(50% - 121px) 0%;
     }
 }

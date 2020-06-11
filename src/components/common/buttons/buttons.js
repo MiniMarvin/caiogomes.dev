@@ -57,14 +57,6 @@ const SecondaryLink = styled.a`
         color: ${theme.colors.ripple};
         transition: color 0s;
     }
-
-    &:first-child {
-        width: 36px;
-        height: 36px;
-        max-width: 36px;
-        max-height: 36px;
-        padding: 4px;
-    }
 `;
 
 const IconLink = styled.a`
@@ -98,6 +90,14 @@ const IconLink = styled.a`
         background-size: 100%;
         transition: background 0s;
     }
+
+    /* &:first-child {
+        width: 36px;
+        height: 36px;
+        max-width: 36px;
+        max-height: 36px;
+        padding: 4px;
+    } */
 `;
 
 function PrimaryButton(props) {
@@ -109,7 +109,7 @@ function PrimaryButton(props) {
 }
 
 function SecondaryButton(props) {
-    return(
+    return (
         <SecondaryLink width={props.width} href={props.href} target='_blank'>
             {props.children}
         </SecondaryLink>

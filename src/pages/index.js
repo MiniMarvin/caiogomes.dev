@@ -22,10 +22,10 @@ const IndexPage = () => (
     <Home></Home>
     <Spacer></Spacer>
     <Project></Project>
-    <ProjectDescription></ProjectDescription>
+    {/* <ProjectDescription></ProjectDescription> */}
     <Spacer></Spacer>
     <Project></Project>
-    <ProjectDescription></ProjectDescription>
+    {/* <ProjectDescription></ProjectDescription> */}
     <Spacer></Spacer>
     <Showcase></Showcase>
     <Spacer></Spacer>

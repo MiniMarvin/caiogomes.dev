@@ -7,8 +7,6 @@ import {PrimaryButton, SecondaryButton, IconButton} from '../common/buttons/butt
 import Section from './section';
 import CommonLink from '../common/links/common-link';
 
-const limitSize = 600;
-
 const BigText = styled.h1`
     /* font-size: 48px; */
     font-size: 15vw;
@@ -19,13 +17,13 @@ const BigText = styled.h1`
         font-size: 14.5vw;
     }
 
-    @media (min-width: ${limitSize}px) {
+    @media (min-width: ${theme.limitSize}px) {
         /* TODO: fine tune those sizes */
         font-size: 6.5vw;
         margin-top: 50px;
     }
 
-    @media (min-width: ${limitSize*1.5}px) {
+    @media (min-width: ${theme.limitSize*1.5}px) {
         /* TODO: change the size for multiple images */
         font-size: 72px;
         margin-top: 50px;
@@ -37,7 +35,7 @@ const FlexRow = styled.div`
     flex-direction: row;
     margin-bottom: 10px;
 
-    @media (min-width:${limitSize}px) {
+    @media (min-width:${theme.limitSize}px) {
         h1,h2,h3,h4,h5,h6,p,span {
             margin: 0px;
             padding: 0px;
@@ -66,7 +64,7 @@ const CustomImg = styled(Img)`
     border-width: 0px;
     border-style: solid;
 
-    @media (min-width: ${limitSize}px) {
+    @media (min-width: ${theme.limitSize}px) {
         border-radius: 50% 0px 0px 50%;
         width:100%;
         height:100%;
@@ -104,9 +102,6 @@ const Spacer = styled.div`
 
 
 function SmallHome(data) {
-
-    console.log('small home');
-
     return(
         <Partial>
             <PartialCol>
@@ -147,9 +142,6 @@ function SmallHome(data) {
 }
 
 function BigHome(data) {
-
-    console.log('big home');
-
     return(
         <Partial>
             <PartialCol>
@@ -261,12 +253,9 @@ function Home() {
         }
     `);
 
-    console.log(window.innerWidth);
-    console.log(limitSize);
-
     return(
         <>
-        {window.innerWidth > limitSize ? BigHome(data) : SmallHome(data)}
+        {window.innerWidth > theme.limitSize ? BigHome(data) : SmallHome(data)}
         </>
     );
 }

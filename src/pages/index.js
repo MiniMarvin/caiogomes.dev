@@ -24,7 +24,7 @@ const IndexPage = () => (
     <Project></Project>
     {/* <ProjectDescription></ProjectDescription> */}
     <Spacer></Spacer>
-    <Project></Project>
+    <Project direction='reverse'></Project>
     {/* <ProjectDescription></ProjectDescription> */}
     <Spacer></Spacer>
     <Showcase></Showcase>

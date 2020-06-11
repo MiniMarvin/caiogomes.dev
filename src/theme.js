@@ -17,7 +17,8 @@ const theme = {
         aqua: '#30D8FD',
         caribeanGreen: '#03BE98'
     },
-    font: 'Nunito'
+    font: 'Nunito',
+    limitSize: 600
 };
 
 export default theme;

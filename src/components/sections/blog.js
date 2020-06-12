@@ -41,7 +41,10 @@ function SmallScreen() {
 function BigScreen(data) {
 
     const imagePath = (width, height, id) => `https://cdn-images-1.medium.com/fit/${width}/${height}/${id}`;
-    const randomItem = (items) => items[Math.floor(Math.random() * items.length)];
+    const randomItem = (items) => items[Math.floor(Math.random() * (items.length))];
+    const forbiddenCharacters = /[^a-zA-Z 0-9.,!@#$%^&*`~+=çãáàâéêèíìóòõúù]/g;
+    const parseTitle = title => title.replace(forbiddenCharacters, '').toLowerCase().split(/[\s.,]/g).join('-');
+    const mediumUrl = (username, title, postid) => `https://medium.com/@${username}/${parseTitle(title)}-${postid}`;
 
     return (
         <Partial>
@@ -70,6 +73,7 @@ function BigScreen(data) {
                                 img={imagePath(220, 220, node.virtuals.previewImage.imageId)}
                                 username={node.author.name}
                                 date={node.latestPublishedAt}
+                                href={mediumUrl(node.author.username, node.title, node.medium_id)}
                             ></MediumPost>)(randomItem(data.allMediumPost.edges).node)
                     }
                 </Section>
@@ -97,7 +101,9 @@ function Blog() {
                         author {
                             name
                             imageId
+                            username
                         }
+                        medium_id
                     }
                 }
             }

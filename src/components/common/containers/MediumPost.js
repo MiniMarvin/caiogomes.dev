@@ -22,17 +22,19 @@ const Row = styled.div`
 
 function MediumPost(props) {
     return (
-        <Container>
-            <img src={props.img} />
-            <h1>{props.title}</h1>
-            <span>{props.description}</span>
-            <Row>
-                <img src={props.userImg} />
-                <span>{props.username}</span>
-                {/* TODO: add clap count */}
-                <span>{props.date}</span>
-            </Row>
-        </Container>
+        <a href={props.href} target='_blank'>
+            <Container>
+                <img src={props.img} />
+                <h1>{props.title}</h1>
+                <span>{props.description}</span>
+                <Row>
+                    <img src={props.userImg} />
+                    <span>{props.username}</span>
+                    {/* TODO: add clap count */}
+                    <span>{props.date}</span>
+                </Row>
+            </Container>
+        </a>
     );
 }
 

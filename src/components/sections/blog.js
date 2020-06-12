@@ -26,6 +26,30 @@ const PartialCol = styled.div`
     overflow: hidden;
 `;
 
+const InputZone = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    margin-top: 50px;
+    /* margin-bottom: 0px; */
+`;
+
+const Container1 = styled.div`
+    flex-grow: 2;
+    margin-right: 15px;
+`;
+
+const Container2 = styled.div`
+    flex-grow: 1;
+`;
+
+const BlogPost = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
 
 function SmallScreen() {
     return (
@@ -52,30 +76,32 @@ function BigScreen(data) {
                 <Section>
                     <Title>blog</Title>
                     <Text>estou sempre escrevendo sobre assuntos interessantes relacionados a tecnologia, produto e inovação, então se você quer saber mais sobre isso <CommonLink href='#'>acesse agora o blog</CommonLink> e se quiser ser notificado sobre novidades nessa área assine a newsletter abaixo</Text>
-                    <Partial>
-                        <CustomInput placeholder='digite seu email...' />
-                        <PrimaryButton href='#'>assinar newsletter</PrimaryButton>
-                    </Partial>
+                    <InputZone>
+                        <Container1>
+                            <CustomInput placeholder='digite seu email...' />
+                        </Container1>
+                        <Container2>
+                            <PrimaryButton href='#'>assinar</PrimaryButton>
+                        </Container2>
+                    </InputZone>
                 </Section>
             </PartialCol>
             <PartialCol>
                 <Section>
-                    {/* {data.allMediumPost.edges.map((edge, id) => 
-                        <div key={id}>
-                            <p>{edge.node.title}</p>
-                            <p>{edge.node.virtuals.previewImage.imageId}</p>
-                        </div>)} */}
-                    {data.allMediumPost.edges.length === 0 ? null:
-                        (node => 
-                            <MediumPost 
-                                title={node.title} 
-                                description={node.virtuals.subtitle}
-                                img={imagePath(220, 220, node.virtuals.previewImage.imageId)}
-                                username={node.author.name}
-                                date={node.latestPublishedAt}
-                                href={mediumUrl(node.author.username, node.title, node.medium_id)}
-                            ></MediumPost>)(randomItem(data.allMediumPost.edges).node)
-                    }
+                    <BlogPost>
+                        {data.allMediumPost.edges.length === 0 ? null:
+                            (node => 
+                                <MediumPost 
+                                    title={node.title} 
+                                    description={node.virtuals.subtitle}
+                                    // TODO: make the image size be different
+                                    img={imagePath(240, 180, node.virtuals.previewImage.imageId)}
+                                    username={node.author.name}
+                                    date={node.latestPublishedAt}
+                                    href={mediumUrl(node.author.username, node.title, node.medium_id)}
+                                ></MediumPost>)(randomItem(data.allMediumPost.edges).node)
+                        }
+                    </BlogPost>
                 </Section>
             </PartialCol>
         </Partial>

@@ -102,7 +102,7 @@ const IconLink = styled.a`
 
 function PrimaryButton(props) {
     return(
-        <PrimaryLink width={props.width} href={props.href} target='_blank' primary={true}>
+        <PrimaryLink width={props.width} href={props.href} className={props.className} target='_blank' primary={true}>
             {props.children}
         </PrimaryLink>
     );
@@ -110,7 +110,7 @@ function PrimaryButton(props) {
 
 function SecondaryButton(props) {
     return (
-        <SecondaryLink width={props.width} href={props.href} target='_blank'>
+        <SecondaryLink width={props.width} href={props.href} className={props.className} target='_blank'>
             {props.children}
         </SecondaryLink>
     );

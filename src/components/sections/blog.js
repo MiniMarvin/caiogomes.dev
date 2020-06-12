@@ -6,6 +6,7 @@ import {PrimaryButton} from '../common/buttons/buttons';
 import CommonLink from '../common/links/common-link';
 import theme from '../../theme';
 import { graphql, useStaticQuery } from "gatsby";
+import MediumPost from '../common/containers/MediumPost';
 
 const Title = styled.div`
     font-size: 36px;
@@ -40,7 +41,8 @@ function SmallScreen() {
 function BigScreen(data) {
 
     const imagePath = (width, height, id) => `https://cdn-images-1.medium.com/fit/${width}/${height}/${id}`;
-    
+    const randomItem = (items) => items[Math.floor(Math.random() * items.length)];
+
     return (
         <Partial>
             <PartialCol>
@@ -55,11 +57,21 @@ function BigScreen(data) {
             </PartialCol>
             <PartialCol>
                 <Section>
-                    {data.allMediumPost.edges.map((edge, id) => 
+                    {/* {data.allMediumPost.edges.map((edge, id) => 
                         <div key={id}>
                             <p>{edge.node.title}</p>
                             <p>{edge.node.virtuals.previewImage.imageId}</p>
-                        </div>)}
+                        </div>)} */}
+                    {data.allMediumPost.edges.length === 0 ? null:
+                        (node => 
+                            <MediumPost 
+                                title={node.title} 
+                                description={node.virtuals.subtitle}
+                                img={imagePath(220, 220, node.virtuals.previewImage.imageId)}
+                                username={node.author.name}
+                                date={node.latestPublishedAt}
+                            ></MediumPost>)(randomItem(data.allMediumPost.edges).node)
+                    }
                 </Section>
             </PartialCol>
         </Partial>
@@ -81,8 +93,10 @@ function Blog() {
                                 imageId
                             }
                         }
+                        latestPublishedAt
                         author {
                             name
+                            imageId
                         }
                     }
                 }

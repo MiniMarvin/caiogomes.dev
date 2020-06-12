@@ -12,6 +12,10 @@ const ContentDiv = styled.div`
     margin: 0px auto;
     display: flex;
     flex-direction: column;
+
+    p {
+        font-size: 18px;
+    }
 `;
 
 const PhoneDiv = styled.div`
@@ -26,6 +30,10 @@ const ButtonDiv = styled.div`
 const FlexContent = styled.div`
     display: flex;
     flex-direction: column;
+
+    p {
+        font-size: 18px;
+    }
 `;
 
 const Partial = styled.div`

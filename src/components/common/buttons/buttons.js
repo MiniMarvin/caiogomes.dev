@@ -16,6 +16,7 @@ const PrimaryLink = styled.a`
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
+    font-size: 18px;
 
     /* Ripple */
     background-position: center;
@@ -45,6 +46,7 @@ const SecondaryLink = styled.a`
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
+    font-size: 18px;
 
     /* Ripple */
     transition: color 0.8s;
@@ -76,6 +78,7 @@ const IconLink = styled.a`
     cursor: pointer;
     /* padding: 4px; */
     margin: 4px;
+    font-size: 18px;
 
     /* Ripple */
     background-position: center;

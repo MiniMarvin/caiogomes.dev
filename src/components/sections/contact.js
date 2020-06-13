@@ -11,7 +11,7 @@ const Title = styled.div`
     font-size: 36px;
 `;
 
-const Text = styled.p`
+const Text = styled.span`
     font-size: 18px;
     margin-bottom: 40px;
 `;
@@ -34,7 +34,8 @@ function smallScreen(data) {
                     em ter um diálogo mais próximo'>
                         contato@caiogomes.dev
                 </CommonLink> ou</Text>
-            
+            <br/>
+            <br/>
             <div>
                 <IconButton>
                     <Img fixed={data.github.childImageSharp.fixed}></Img>
@@ -70,23 +71,24 @@ function bigScreen(data) {
                     Estou entrando em contato pois vi seu site e fiquei interessado 
                     em ter um diálogo mais próximo'>
                         contato@caiogomes.dev
-                </CommonLink> ou <Spacer></Spacer>
-                <IconButton>
-                    <Img fixed={data.github.childImageSharp.fixed}></Img>
-                </IconButton>
-                <IconButton>
-                    <Img fixed={data.instagram.childImageSharp.fixed}></Img>
-                </IconButton>
-                <IconButton>
-                    <Img fixed={data.medium.childImageSharp.fixed}></Img>
-                </IconButton>
-                <IconButton>
-                    <Img fixed={data.twitter.childImageSharp.fixed}></Img>
-                </IconButton>
-                <IconButton>
-                    <Img fixed={data.gmail.childImageSharp.fixed}></Img>
-                </IconButton>
-            </Text>
+                </CommonLink> ou
+            </Text> 
+            <Spacer></Spacer>
+            <IconButton>
+                <Img fixed={data.github.childImageSharp.fixed}></Img>
+            </IconButton>
+            <IconButton>
+                <Img fixed={data.instagram.childImageSharp.fixed}></Img>
+            </IconButton>
+            <IconButton>
+                <Img fixed={data.medium.childImageSharp.fixed}></Img>
+            </IconButton>
+            <IconButton>
+                <Img fixed={data.twitter.childImageSharp.fixed}></Img>
+            </IconButton>
+            <IconButton>
+                <Img fixed={data.gmail.childImageSharp.fixed}></Img>
+            </IconButton>
         </Section>
     );
 }

@@ -21,6 +21,7 @@ const ContentDiv = styled.div`
 const PhoneDiv = styled.div`
     /* max-height: 200px; */
     height: 415px;
+    padding: 0px calc(50% - 98.44px);
 `;
 const ButtonDiv = styled.div`
     z-index: 20;
@@ -49,6 +50,14 @@ const PartialCol = styled.div`
     }
 `;
 
+const Title = styled.div`
+    font-size: 36px;
+`;
+
+const Description = styled.p`
+    margin-bottom: 40px;
+`;
+
 function smallScreen(props) {
     return(
         <div>
@@ -67,16 +76,15 @@ function smallScreen(props) {
                         </div>
                     </PhoneDiv>
                     <ButtonDiv>
-                        <SecondaryButton href='#' width='200px'>acesse agora o aplicativo</SecondaryButton>
+                        <SecondaryButton href='#' width='300px'>acesse agora o aplicativo</SecondaryButton>
                     </ButtonDiv>
                     <div></div>
                 </ContentDiv>
             </Section>
             <Section>
                 <FlexContent>
-                    <p>
-                    mostra minhas habilidades de criar interfaces bonitas e simples com utilidade e o uso de serviços e apis para garantir a sincronização do serviço com diversas plataformas, de sites até aplicativos, além de websockets e outras features importantes, e aproxima de saúde
-                    </p>
+                    <Title>{props.title}</Title>
+                    <Description>{props.children}</Description>
                     <PrimaryButton href='#'>
                         encomende um app agora
                     </PrimaryButton>
@@ -111,9 +119,8 @@ function bigScreen(props) {
             <PartialCol>
                 <Section>
                     <FlexContent>
-                        <p>
-                        mostra minhas habilidades de criar interfaces bonitas e simples com utilidade e o uso de serviços e apis para garantir a sincronização do serviço com diversas plataformas, de sites até aplicativos, além de websockets e outras features importantes, e aproxima de saúde
-                        </p>
+                        <Title>{props.title}</Title>
+                        <Description>{props.children}</Description>
                         <PrimaryButton href='#'>
                             encomende um app agora
                         </PrimaryButton>

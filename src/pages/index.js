@@ -21,10 +21,18 @@ const IndexPage = () => (
     <SEO title="caio gomes" />
     <Home></Home>
     <Spacer></Spacer>
-    <Project></Project>
-    {/* <ProjectDescription></ProjectDescription> */}
+    <Project title='app 1'>
+      mostra minhas habilidades de criar interfaces bonitas e simples com 
+      utilidade e o uso de serviços e apis para garantir a sincronização do 
+      serviço com diversas plataformas, de sites até aplicativos, além de 
+      websockets e outras features importantes, e aproxima de saúde
+    </Project>
     <Spacer></Spacer>
-    <Project direction='reverse'></Project>
+    <Project title='app 2' direction='reverse'>
+    mostra minha capacidade de criar aplicativos que utilizam de fato bastante 
+    do hardware e com necessidades específicas e mostra que não é só de saúde 
+    que meus apps são feitos
+    </Project>
     {/* <ProjectDescription></ProjectDescription> */}
     <Spacer></Spacer>
     <Showcase></Showcase>

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #241C4F;
   color: white;

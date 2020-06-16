@@ -58,15 +58,21 @@ const Description = styled.p`
     margin-bottom: 40px;
 `;
 
+const ReduceAMargin = styled.div`
+    a {
+        margin: 10px 0px 0px 0px;
+    }
+`
+
 function smallScreen(props) {
     return(
         <div>
             <Section>
                 <ContentDiv>
                     <PhoneDiv>
-                        <div className="device device-iphone-x">
+                        <div className="device device-iphone-8">
                             <div className="device-frame">
-                                <img className="device-content" src="https://www.google.com/sky/about_files/messier82.jpg" />
+                                {props.children}
                             </div>
                             <div className="device-stripe"></div>
                             <div className="device-header"></div>
@@ -76,7 +82,7 @@ function smallScreen(props) {
                         </div>
                     </PhoneDiv>
                     <ButtonDiv>
-                        <SecondaryButton href='#' width='300px'>acesse agora o aplicativo</SecondaryButton>
+                        <SecondaryButton href={props.link} target='_blank' width='300px'>acesse agora o aplicativo</SecondaryButton>
                     </ButtonDiv>
                     <div></div>
                 </ContentDiv>
@@ -84,7 +90,7 @@ function smallScreen(props) {
             <Section>
                 <FlexContent>
                     <Title>{props.title}</Title>
-                    <Description>{props.children}</Description>
+                    <Description>{props.description}</Description>
                     <PrimaryButton href='#'>
                         encomende um app agora
                     </PrimaryButton>
@@ -101,9 +107,9 @@ function bigScreen(props) {
                 <Section>
                     <ContentDiv>
                         <PhoneDiv>
-                            <div className="device device-iphone-x">
+                            <div className="device device-iphone-8">
                                 <div className="device-frame">
-                                    <img className="device-content" src="https://www.google.com/sky/about_files/messier82.jpg" />
+                                    {props.children}
                                 </div>
                                 <div className="device-stripe"></div>
                                 <div className="device-header"></div>
@@ -120,10 +126,15 @@ function bigScreen(props) {
                 <Section>
                     <FlexContent>
                         <Title>{props.title}</Title>
-                        <Description>{props.children}</Description>
-                        <PrimaryButton href='#'>
-                            encomende um app agora
-                        </PrimaryButton>
+                        <Description>{props.description}</Description>
+                        <ButtonDiv>
+                            <SecondaryButton href={props.link} target='_blank' width='300px'>acesse agora o aplicativo</SecondaryButton>
+                        </ButtonDiv>
+                        <ReduceAMargin>
+                            <PrimaryButton href='#'>
+                                encomende um app agora
+                            </PrimaryButton>
+                        </ReduceAMargin>
                     </FlexContent>
                 </Section>
             </PartialCol>

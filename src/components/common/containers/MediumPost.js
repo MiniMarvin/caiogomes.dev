@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 
 const Container = styled.div`
+    /* background-color: white; */
     background-color: white;
+    border-width: 10px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -12,7 +14,12 @@ const Container = styled.div`
     padding: 25px;
     text-align: left;
     max-width: 360px;
-    margin: 0px;
+    margin: 0px 0px 20px;
+
+    /* 
+    TODO: change the image with an animation so it can transform with the page scroll
+    */
+    box-shadow: 10px 10px 0 #FACD8E;
 
     h1 {
         margin: 0px;

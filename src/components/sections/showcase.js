@@ -67,16 +67,22 @@ function smallScreen(apps) {
                             <AppArea>
                                 <div>
                                     <h1>Outros apps</h1>
-                                    {/* <AppCard />
-                                    <AppCard />
-                                    <AppCard />
-                                    <AppCard />
-                                    <AppCard /> */}
+                                    {
+                                        apps.map((app, key) => (
+                                            <AppCard
+                                                key={key}
+                                                title={app.title}
+                                                description={app.description}
+                                                link={app.link}
+                                                img={app.img}
+                                            />
+                                        ))
+                                    }
                                 </div>
                                 <div>
-                                    <PrimaryButton>
+                                    {/* <PrimaryButton>
                                         ver todos os apps
-                                    </PrimaryButton>
+                                    </PrimaryButton> */}
                                     <Spacer/>
                                 </div>
                             </AppArea>
@@ -116,9 +122,9 @@ function bigScreen(apps) {
                                 }
                             </div>
                             <div>
-                                <PrimaryButton>
+                                {/* <PrimaryButton>
                                     ver todos os apps
-                                </PrimaryButton>
+                                </PrimaryButton> */}
                                 <Spacer/>
                             </div>
                         </AppArea>
@@ -164,6 +170,14 @@ function Showcase() {
                 childImageSharp {
                     fixed(width: 48, height: 48) {
                         ...GatsbyImageSharpFixed
+                    }
+                }
+            }
+            bgShowcase: file(relativePath: { eq: "bg-showase.png" }) {
+                childImageSharp {
+                    fluid(maxHeight: 1000, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                        ...GatsbyImageSharpFluidLimitPresentationSize
                     }
                 }
             }

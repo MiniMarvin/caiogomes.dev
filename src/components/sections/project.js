@@ -55,7 +55,7 @@ const Title = styled.div`
 `;
 
 const Description = styled.p`
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 `;
 
 const ReduceAMargin = styled.div`
@@ -91,8 +91,8 @@ function smallScreen(props) {
                 <FlexContent>
                     <Title>{props.title}</Title>
                     <Description>{props.description}</Description>
-                    <PrimaryButton href='#'>
-                        encomende um app agora
+                    <PrimaryButton href='https://forms.gle/pXbtucfzxaQhSQV26'>
+                        {props.ctaTitle}
                     </PrimaryButton>
                 </FlexContent>
             </Section>
@@ -102,7 +102,7 @@ function smallScreen(props) {
 
 function bigScreen(props) {
     return(
-        <Partial direction={props.direction}>
+        <Partial direction={props.direction} id={props.id}>
             <PartialCol>
                 <Section>
                     <ContentDiv>
@@ -131,8 +131,8 @@ function bigScreen(props) {
                             <SecondaryButton href={props.link} target='_blank' width='300px'>acesse agora o aplicativo</SecondaryButton>
                         </ButtonDiv>
                         <ReduceAMargin>
-                            <PrimaryButton href='#'>
-                                encomende um app agora
+                            <PrimaryButton href='https://forms.gle/pXbtucfzxaQhSQV26'>
+                                {props.ctaTitle}
                             </PrimaryButton>
                         </ReduceAMargin>
                     </FlexContent>

@@ -33,12 +33,15 @@ const IndexPage = () => {
       <Home></Home>
       <Spacer></Spacer>
       <Project title='Remedioz'
-        description='Esse é um aplicativo desenvolvido com o objetivo de acompanhar
-        quem precisa tomar remédios em horários específicos fazendo um agendamento
-        dos horários do medicamento e disponibilizando alarmes na hora que a pessoa
-        cadastrou, com a possibilidade de adicionar dias específicos e em horários
-        específicos. Foi feito em flutter e está disponível em iOS e Android'
+        description='Esse app surgiu quando tive de seguir um tratamento médico.
+        Vi que é complicado gerenciar vários medicamentos por dia e construí esse produto.
+        O aplicativo foi desenvolvido em Flutter e está disponível para Android e iOS. Foi 
+        desenvolvido em cerca de quatro semanas, sendo a primeira semana realizando 
+        entrevistas com outras pessoas que tomavam remédios, uma semana montando a 
+        identidade visual e duas semanas desenvolvendo.'
         link={isAndroid ? remediozAndroid : remediozIos }
+        ctaTitle='trabalhe comigo'
+        id='project-1'
       >
         <Video autoPlay muted loop id="remedioz">
           <source src={Remedioz} type="video/mp4" />
@@ -47,12 +50,13 @@ const IndexPage = () => {
       </Project>
       <Spacer></Spacer>
       <Project title='Color Matcher' direction='reverse'
-        description='Um jogo casual feito nativamente em swift para iOS que utiliza 
-        um feedback tátil para que o usuário tenha uma maior imersão na experiência, 
-        a dificuldade vai aumentando com o tempo de jogo, que é controlado por swipes
-        na tela. O usuário possui 5 vidas que são perdidas quando duas bolinhas de
-        cores diferentes colidem entre si.'
+        description='Esse é um jogo desenvolvido de forma nativa utilizando Swift e SpriteKit
+        devido a uma ideia que tive de jogo que pudesse ser casual e dinâmico pois não encontrei
+        nenhum jogo na loja que atendesse a essa vontade que estava na época. O desenvolvimento
+        durou 3 semanas aproximadamente, uma para o design e duas para o desenvolvimento do jogo.'
         link='https://apps.apple.com/br/app/color-matcher-game/id1439815926'
+        ctaTitle='crie seu app'
+        id='project-2'
       >
         <Video autoPlay muted loop id="color-matcher">
           <source src={ColorMatcher} type="video/mp4" />

@@ -6,6 +6,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import {PrimaryButton, SecondaryButton, IconButton} from '../common/buttons/buttons';
 import Section from './section';
 import CommonLink from '../common/links/common-link';
+import SocialMedia from '../common/links/SocialMedia';
 
 const BigText = styled.h1`
     /* font-size: 48px; */
@@ -130,10 +131,10 @@ function SmallHome(data) {
                         <h3>eu transformo ideias em produtos digitais de alta qualidade</h3>
                     </FlexRow>
                     <FlexRow>
-                        <SecondaryButton href='#'>conheça meu trabalho</SecondaryButton>
+                        <SecondaryButton href='#project-1'>conheça meu trabalho</SecondaryButton>
                     </FlexRow>
                     <FlexRow>
-                        <PrimaryButton href='#'>encomende agora seu app</PrimaryButton>
+                        <PrimaryButton href='https://forms.gle/tbxkMMfESAAv2iRK9'>encomende agora seu app</PrimaryButton>
                     </FlexRow>
                 </Section>
             </PartialCol>
@@ -161,30 +162,16 @@ function BigHome(data) {
                         <h3>eu transformo ideias em produtos digitais de alta qualidade</h3>
                     </FlexRow>
                     <FlexRow>
-                        <CommonLink href="#"><h3>conheça meu trabalho</h3></CommonLink>
+                        <CommonLink href="#project-1"><h3>conheça meu trabalho</h3></CommonLink>
                     </FlexRow>
                     <FlexRow>
-                        <IconButton>
-                            <Img fixed={data.github.childImageSharp.fixed}></Img>
-                        </IconButton>
-                        <IconButton>
-                            <Img fixed={data.instagram.childImageSharp.fixed}></Img>
-                        </IconButton>
-                        <IconButton>
-                            <Img fixed={data.medium.childImageSharp.fixed}></Img>
-                        </IconButton>
-                        <IconButton>
-                            <Img fixed={data.twitter.childImageSharp.fixed}></Img>
-                        </IconButton>
-                        <IconButton>
-                            <Img fixed={data.gmail.childImageSharp.fixed}></Img>
-                        </IconButton>
+                        <SocialMedia medium={false} instagram={false} twitter={false} />
                     </FlexRow>
                     <FlexRow>
                         <Spacer></Spacer>
                     </FlexRow>
                     <FlexRow>
-                        <PrimaryButton href='#'>encomende agora seu app</PrimaryButton>
+                        <PrimaryButton href='https://forms.gle/tbxkMMfESAAv2iRK9'>encomende agora seu app</PrimaryButton>
                     </FlexRow>
                 </Section>
             </PartialCol>
@@ -212,41 +199,6 @@ function Home() {
                     fluid(maxHeight: 1000, quality: 100) {
                         ...GatsbyImageSharpFluid
                         ...GatsbyImageSharpFluidLimitPresentationSize
-                    }
-                }
-            }
-            instagram: file(relativePath: { eq: "icons/instagram-sketched.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            medium: file(relativePath: { eq: "icons/medium.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            twitter: file(relativePath: { eq: "icons/twitter.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            github: file(relativePath: { eq: "icons/github-image.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            gmail: file(relativePath: { eq: "icons/gmail.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
                     }
                 }
             }

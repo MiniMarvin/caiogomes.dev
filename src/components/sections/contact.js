@@ -6,6 +6,7 @@ import CommonLink from '../common/links/common-link';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import theme from '../../theme';
+import SocialMedia from '../common/links/SocialMedia';
 
 const Title = styled.div`
     font-size: 36px;
@@ -18,6 +19,10 @@ const Text = styled.span`
 
 const Spacer = styled.span`
     width: 30px;
+`;
+
+const Inline = styled.div`
+    display: inline;
 `;
 
 function smallScreen(data) {
@@ -36,23 +41,7 @@ function smallScreen(data) {
                 </CommonLink> ou</Text>
             <br/>
             <br/>
-            <div>
-                <IconButton>
-                    <Img fixed={data.github.childImageSharp.fixed}></Img>
-                </IconButton>
-                <IconButton>
-                    <Img fixed={data.instagram.childImageSharp.fixed}></Img>
-                </IconButton>
-                <IconButton>
-                    <Img fixed={data.medium.childImageSharp.fixed}></Img>
-                </IconButton>
-                <IconButton>
-                    <Img fixed={data.twitter.childImageSharp.fixed}></Img>
-                </IconButton>
-                <IconButton>
-                    <Img fixed={data.gmail.childImageSharp.fixed}></Img>
-                </IconButton>
-            </div>
+            <SocialMedia />
         </Section>
     );
 }
@@ -74,68 +63,14 @@ function bigScreen(data) {
                 </CommonLink> ou
             </Text> 
             <Spacer></Spacer>
-            <IconButton>
-                <Img fixed={data.github.childImageSharp.fixed}></Img>
-            </IconButton>
-            <IconButton>
-                <Img fixed={data.instagram.childImageSharp.fixed}></Img>
-            </IconButton>
-            <IconButton>
-                <Img fixed={data.medium.childImageSharp.fixed}></Img>
-            </IconButton>
-            <IconButton>
-                <Img fixed={data.twitter.childImageSharp.fixed}></Img>
-            </IconButton>
-            <IconButton>
-                <Img fixed={data.gmail.childImageSharp.fixed}></Img>
-            </IconButton>
+            <SocialMedia />
         </Section>
     );
 }
 
 function Contact() {
-    const data = useStaticQuery(graphql`
-        query {
-            instagram: file(relativePath: { eq: "icons/instagram-sketched.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            medium: file(relativePath: { eq: "icons/medium.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            twitter: file(relativePath: { eq: "icons/twitter.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            github: file(relativePath: { eq: "icons/github-image.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-            gmail: file(relativePath: { eq: "icons/gmail.png" }) {
-                childImageSharp {
-                    fixed(width: 24, height: 24) {
-                    ...GatsbyImageSharpFixed
-                    }
-                }
-            }
-        }
-    `);
-
     return (
-    <>{window.innerWidth < theme.limitSize ? smallScreen(data) : bigScreen(data) }</>
+    <>{window.innerWidth < theme.limitSize ? smallScreen() : bigScreen() }</>
     );
 }
 

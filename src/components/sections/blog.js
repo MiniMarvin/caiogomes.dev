@@ -7,6 +7,7 @@ import CommonLink from '../common/links/common-link';
 import theme from '../../theme';
 import { graphql, useStaticQuery } from "gatsby";
 import MediumPost from '../common/containers/MediumPost';
+import SocialMedia from '../common/links/SocialMedia';
 
 const Title = styled.div`
     font-size: 36px;
@@ -55,9 +56,14 @@ function SmallScreen() {
     return (
         <Section>
             <Title>blog</Title>
-            <Text>estou sempre escrevendo sobre assuntos interessantes relacionados a tecnologia, produto e inovação, então se você quer saber mais sobre isso <CommonLink href='#'>acesse agora o blog</CommonLink> e se quiser ser notificado sobre novidades nessa área assine a newsletter abaixo</Text>
-            <CustomInput placeholder='digite seu email...' />
-            <PrimaryButton href='#'>assinar newsletter</PrimaryButton>
+            <Text>
+                estou sempre escrevendo sobre assuntos interessantes 
+                relacionados a tecnologia, produto e inovação, então 
+                se você quer saber mais sobre isso 
+                <CommonLink href='#'>acesse agora o blog</CommonLink> 
+                e acompanhe minhas redes sociais para ficar sempre informado
+            </Text>
+            <SocialMedia github={false} gmail={false} whatsapp={false} />
         </Section>
     );
 }
@@ -75,15 +81,14 @@ function BigScreen(data) {
             <PartialCol>
                 <Section>
                     <Title>blog</Title>
-                    <Text>estou sempre escrevendo sobre assuntos interessantes relacionados a tecnologia, produto e inovação, então se você quer saber mais sobre isso <CommonLink href='#'>acesse agora o blog</CommonLink> e se quiser ser notificado sobre novidades nessa área assine a newsletter abaixo</Text>
-                    <InputZone>
-                        <Container1>
-                            <CustomInput placeholder='digite seu email...' />
-                        </Container1>
-                        <Container2>
-                            <PrimaryButton href='#'>assinar</PrimaryButton>
-                        </Container2>
-                    </InputZone>
+                    <Text>
+                        estou sempre escrevendo sobre assuntos interessantes 
+                        relacionados a tecnologia, produto e inovação, então 
+                        se você quer saber mais sobre isso 
+                        <CommonLink href='#'>acesse agora o blog</CommonLink> 
+                        e acompanhe minhas redes sociais para ficar sempre informado
+                    </Text>
+                    <SocialMedia github={false} gmail={false} whatsapp={false} />
                 </Section>
             </PartialCol>
             <PartialCol>

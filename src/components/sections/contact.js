@@ -8,6 +8,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import theme from '../../theme';
 import SocialMedia from '../common/links/SocialMedia';
 import withSizes from 'react-sizes';
+import {MobileOnlySpan, DesktopOnlySpan, MobileOnlyDiv, DesktopOnlyDiv} from '../common/containers/MobileRender';
 
 const Title = styled.div`
     font-size: 36px;
@@ -26,56 +27,28 @@ const Inline = styled.div`
     display: inline;
 `;
 
-function smallScreen(data) {
-    return (
-        <Section>
-            <Title>contato</Title>
-            <Text>além disso estou sempre ativo nas redes sociais, então se quiser 
-                acompanhar a produção de apps, saber sobre novidades de tecnologia 
-                ou ver ideias incríveis, estou disponíveis através de 
-                <br/>
-                {/* {window.innerWidth < } */}
-                <CommonLink href='mailto:contato@caiogomes.dev?subject=Olá! 
-                    Estou entrando em contato pois vi seu site e fiquei interessado 
-                    em ter um diálogo mais próximo'>
-                        contato@caiogomes.dev
-                </CommonLink> ou</Text>
-            <br/>
-            <br/>
-            <SocialMedia />
-        </Section>
-    );
-}
-
-function bigScreen(data) {
-    return (
-        <Section>
-            <Title>contato</Title>
-            <Text>além disso estou sempre ativo nas redes sociais, então se quiser 
-                acompanhar a produção de apps, saber sobre novidades de tecnologia 
-                ou ver ideias incríveis, estou disponíveis através de 
-                <br/>
-                <br/>
-                {/* {window.innerWidth < } */}
-                <CommonLink href='mailto:contato@caiogomes.dev?subject=Olá! 
-                    Estou entrando em contato pois vi seu site e fiquei interessado 
-                    em ter um diálogo mais próximo'>
-                        contato@caiogomes.dev
-                </CommonLink> ou
-            </Text> 
-            <Spacer></Spacer>
-            <SocialMedia />
-        </Section>
-    );
-}
-
-
-
 function Contact(props) {
-  let renderSmall = props.isSmall;
-
   return (
-    <>{renderSmall ? smallScreen() : bigScreen() }</>
+    <Section>
+        <Title>contato</Title>
+        <Text>além disso estou sempre ativo nas redes sociais, então se quiser 
+            acompanhar a produção de apps, saber sobre novidades de tecnologia 
+            ou ver ideias incríveis, estou disponíveis através de 
+            <DesktopOnlySpan>
+            <br/>
+            </DesktopOnlySpan>
+            <br/>
+            <CommonLink href='https://mail.google.com/mail/?view=cm&fs=1&to=contato@caiogomes.dev&su=Gostaria%20de%20conversar%20com%20você'>
+              contato@caiogomes.dev
+            </CommonLink> ou</Text> 
+        <DesktopOnlySpan>
+          <Spacer />
+        </DesktopOnlySpan>
+        <MobileOnlySpan>
+          <br/><br/>
+        </MobileOnlySpan>
+        <SocialMedia />
+    </Section>
   );
 }
 

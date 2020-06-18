@@ -8,11 +8,19 @@ import Section from './section';
 import CommonLink from '../common/links/common-link';
 import SocialMedia from '../common/links/SocialMedia';
 
+// TODO: make the underscore border-radius round
+
 const BigText = styled.h1`
     /* font-size: 48px; */
     font-size: 15vw;
     padding: 0px;
     margin: 0px;
+    display: inline;
+
+    span {
+      text-decoration: underline solid #FD8A07;
+      border-radius: 10px;
+    }
 
     @media (min-width: 414px) {
         font-size: 14.5vw;
@@ -109,7 +117,7 @@ function SmallHome(data) {
                 <Section>
                     <FlexRow>
                         {/* TODO: use an image to substitute this ">" */}
-                        <BigText>> caio gomes</BigText>
+                        <BigText><span>c</span>aio gomes</BigText>
                     </FlexRow>
                     <FlexRow>
                         <div>
@@ -149,7 +157,19 @@ function BigHome(data) {
                 <Section>
                     <FlexRow>
                         {/* TODO: use an image to substitute this ">" */}
-                        <BigText>> caio gomes</BigText>
+                        <BigText>
+                          <Img style={{
+                              width: '0.35em',
+                              display: "inline-block",
+                              marginRight: '10px',
+                              marginLeft: '-0.5em',
+                              marginBottom: '-3px'
+                            }}
+                            // sizes={data.arrow.childImageSharp.sizes} 
+                            fluid={data.arrow.childImageSharp.fluid} 
+                          />
+                          <span>c</span>aio gomes
+                        </BigText>
                     </FlexRow>
                     <FlexRow>
                         <h2>
@@ -197,6 +217,14 @@ function Home() {
                         ...GatsbyImageSharpFixed
                     }
                     fluid(maxHeight: 1000, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                        # ...GatsbyImageSharpFluidLimitPresentationSize
+                    }
+                }
+            }
+            arrow: file(relativePath: { eq: "icons/arrow.png" }) {
+                childImageSharp {
+                    fluid(quality: 10) {
                         ...GatsbyImageSharpFluid
                         ...GatsbyImageSharpFluidLimitPresentationSize
                     }

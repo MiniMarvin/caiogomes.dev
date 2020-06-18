@@ -7,6 +7,7 @@ import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import theme from '../../theme';
 import SocialMedia from '../common/links/SocialMedia';
+import withSizes from 'react-sizes';
 
 const Title = styled.div`
     font-size: 36px;
@@ -68,10 +69,18 @@ function bigScreen(data) {
     );
 }
 
-function Contact() {
-    return (
-    <>{window.innerWidth < theme.limitSize ? smallScreen() : bigScreen() }</>
-    );
+
+
+function Contact(props) {
+  let renderSmall = props.isSmall;
+
+  return (
+    <>{renderSmall ? smallScreen() : bigScreen() }</>
+  );
 }
 
-export default Contact;
+const mapSizesToProps = sizes => ({
+  isSmall: sizes.width && sizes.width < theme.limitSize
+});
+
+export default withSizes(mapSizesToProps)(Contact);

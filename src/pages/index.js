@@ -22,8 +22,10 @@ const Video = styled.video`
 `;
 
 const IndexPage = () => {
-
-  const isAndroid = navigator.userAgent.toLowerCase().includes('android');
+  let isAndroid = false;
+  if (typeof window !== `undefined`) {
+    isAndroid = window.navigator.userAgent.toLowerCase().includes('android');
+  }
   const remediozAndroid = 'https://play.google.com/store/apps/details?id=com.zurpei.medication_manager_app&hl=de';
   const remediozIos = 'https://apps.apple.com/br/app/remedioz/id1499649906';
 

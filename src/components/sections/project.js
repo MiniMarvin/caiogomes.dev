@@ -5,6 +5,7 @@ import theme from '../../theme';
 import '../../styles/picturepan2/devices.min.css';
 import '../../styles/responsive-device.css';
 import { SecondaryButton, PrimaryButton } from '../common/buttons/buttons';
+import withSizes from 'react-sizes';
 
 const limitSize = 600;
 
@@ -144,12 +145,16 @@ function bigScreen(props) {
 
 
 function Project(props) {
+
+    let renderSmall = props.isSmall;
+
     return(
-        <>
-            {window.innerWidth < theme.limitSize ? smallScreen(props) : bigScreen(props)}
-        </>
+        <>{renderSmall ? smallScreen(props) : bigScreen(props)}</>
     );
 }
 
-export default Project
-;
+const mapSizesToProps = sizes => ({
+  isSmall: sizes.width && sizes.width < theme.limitSize
+})
+
+export default withSizes(mapSizesToProps)(Project);

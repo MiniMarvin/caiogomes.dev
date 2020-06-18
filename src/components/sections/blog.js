@@ -8,6 +8,7 @@ import theme from '../../theme';
 import { graphql, useStaticQuery } from "gatsby";
 import MediumPost from '../common/containers/MediumPost';
 import SocialMedia from '../common/links/SocialMedia';
+import withSizes from 'react-sizes';
 
 const Title = styled.div`
     font-size: 36px;
@@ -114,7 +115,7 @@ function BigScreen(data) {
 }
 
 
-function Blog() {
+function Blog(props) {
     const data = useStaticQuery(graphql`
         query {
             allMediumPost(sort: { fields: [createdAt], order: DESC }) {
@@ -142,14 +143,16 @@ function Blog() {
     `);
 
     // force a rerender
-    console.log(data);
-    console.log(data.allMediumPost);
+
+    let renderSmall = props.isSmall;
 
     return (
-        <>
-            {window.innerWidth < theme.limitSize ? SmallScreen() : BigScreen(data)}
-        </>
+        <>{renderSmall ? SmallScreen() : BigScreen(data)}</>
     );
 }
 
-export default Blog;
+const mapSizesToProps = sizes => ({
+  isSmall: sizes.width && sizes.width < theme.limitSize
+});
+
+export default withSizes(mapSizesToProps)(Blog);

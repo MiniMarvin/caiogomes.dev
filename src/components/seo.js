@@ -53,7 +53,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `desenvolvedor de produtos digitais em recife e divulgador de conhecimentos em tecnologia`,
         },
         {
           name: `twitter:creator`,

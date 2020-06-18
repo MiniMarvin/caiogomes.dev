@@ -7,6 +7,7 @@ import {PrimaryButton, SecondaryButton, IconButton} from '../common/buttons/butt
 import Section from './section';
 import CommonLink from '../common/links/common-link';
 import SocialMedia from '../common/links/SocialMedia';
+import withSizes from 'react-sizes';
 
 // TODO: make the underscore border-radius round
 
@@ -110,7 +111,7 @@ const Spacer = styled.div`
 `;
 
 
-function SmallHome(data) {
+function SmallHome(data, break1, break2) {
     return(
         <Partial>
             <PartialCol>
@@ -128,9 +129,9 @@ function SmallHome(data) {
                                 inovando em<br/>
                                 {/* in 414px remove the break */}
                                 <GreenText>apps</GreenText> <OrangeText>&</OrangeText> 
-                                { window.innerWidth < 470 ? <br/> : null }
+                                { break1 ? <br/> : null }
                                 <GreenText> produtos</GreenText> 
-                                { window.innerWidth < 414 ? <br/> : null } 
+                                { break2 ? <br/> : null } 
                                 <GreenText> digitais</GreenText>
                             </h2>
                         </AlignRight>
@@ -206,7 +207,7 @@ function BigHome(data) {
     );
 }
 
-function Home() {
+function Home(props) {
     const data = useStaticQuery(graphql`
         query {
             file(relativePath: { eq: "foto-alta-qualidade.png" }) {
@@ -233,12 +234,17 @@ function Home() {
         }
     `);
 
+    let renderSmall = props.isSmall;
+
     return(
-        <>
-        {window.innerWidth > theme.limitSize ? BigHome(data) : SmallHome(data)}
-        </>
+        <>{renderSmall ? SmallHome(data, props.break1, props.break2): BigHome(data)}</>
     );
 }
 
+const mapSizesToProps = sizes => ({
+  isSmall: sizes.width && sizes.width < theme.limitSize,
+  break1: sizes.width && sizes.width < 470,
+  break2: sizes.width && sizes.width < 414,
+});
 
-export default Home;
+export default withSizes(mapSizesToProps)(Home);

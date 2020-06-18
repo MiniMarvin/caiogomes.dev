@@ -6,7 +6,8 @@ import { PrimaryButton } from '../common/buttons/buttons';
 import theme from '../../theme';
 import AppCard from '../common/containers/AppCard';
 import { graphql, useStaticQuery } from "gatsby";
-import BackgroundImage from 'gatsby-background-image'
+import BackgroundImage from 'gatsby-background-image';
+import withSizes from 'react-sizes';
 
 const ContentDiv = styled.div`
   margin: 0px auto;
@@ -165,7 +166,7 @@ function bigScreen(apps, img) {
 
 
 
-function Showcase() {
+function Showcase(props) {
   const data = useStaticQuery(graphql`
     query {
       diarioAlimentar: file(relativePath: { eq: "apps/diario-alimentar.jpg" }) {
@@ -233,13 +234,15 @@ function Showcase() {
     },
   ];
   const img = data.bgImg.childImageSharp.fluid;
-  console.log(`img: ${img}`);
+
+  let renderSmall = props.isSmall;
 
   return (
-    <>
-      {window.innerWidth < theme.limitSize ? smallScreen(apps, img) : bigScreen(apps, img)}
-    </>
+    <>{renderSmall ? smallScreen(apps, img) : bigScreen(apps, img)}</>
   );
 }
+const mapSizesToProps = sizes => ({
+  isSmall: sizes.width && sizes.width < theme.limitSize
+});
 
-export default Showcase;
+export default withSizes(mapSizesToProps)(Showcase);

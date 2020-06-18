@@ -5,6 +5,7 @@ import {PrimaryButton} from '../common/buttons/buttons';
 import theme from  '../../theme';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from "gatsby";
+import withSizes from 'react-sizes';
 
 const Title = styled.div`
     font-size: 36px;
@@ -36,7 +37,7 @@ const CustomImg = styled(Img)`
 
 const aboutTitle = 'Quem é caio?';
 
-const aboutText = 'Olá! Bem, como você já eu crio produtos digitais para resolver um problema específico, \
+const aboutText = 'Olá! Bem, como você já sabe, crio produtos digitais em recife para resolver um problema específico, \
 meu processo é de entender os problemas do negócio e conceber um app que que cause \
 impacto. comecei a desenvolver software aos 12 anos e já ganhei algumas competições \
 internacionais como scholarship na WWDC da Apple (2018 & 2019) e a ESDC da Intel (2018). \
@@ -74,7 +75,7 @@ function bigScreen(data) {
     );
 }
 
-function About() {
+function About(props) {
     const data = useStaticQuery(graphql`
         query {
             file(relativePath: { eq: "me-tech 1.png" }) {
@@ -89,10 +90,15 @@ function About() {
         }
     `);
 
+    let renderSmall = props.isSmall;
 
     return (
-        <>{window.innerWidth < theme.limitSize ? smallScreen() : bigScreen(data)}</>
+        <>{renderSmall ? smallScreen() : bigScreen(data)}</>
     );
 }
 
-export default About;
+const mapSizesToProps = sizes => ({
+  isSmall: sizes.width && sizes.width < theme.limitSize
+})
+
+export default withSizes(mapSizesToProps)(About);

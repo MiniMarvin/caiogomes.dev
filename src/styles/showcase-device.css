@@ -1,7 +1,0 @@
-.device {
-    /* width: 428; height: 868 */
-    position: absolute;
-    transform: scale(1);
-    transform-origin: calc(50% - 214px) 0%;
-    z-index: 1;  
-}

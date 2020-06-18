@@ -107,7 +107,8 @@ function SocialMedia(props) {
             }
             {
                 props.gmail === false ? null :
-                <IconButton href='mailto:contato@caiogomes.dev?subject=Gostaria de conversar com você'>
+                // <IconButton href='mailto:contato@caiogomes.dev?subject=Gostaria de conversar com você'>
+                <IconButton href='https://mail.google.com/mail/?view=cm&fs=1&to=contato@caiogomes.dev&su=Gostaria%20de%20conversar%20com%20você'>
                     <Img fixed={data.gmail.childImageSharp.fixed}></Img>
                 </IconButton>
             }

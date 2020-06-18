@@ -8,6 +8,7 @@ import AppCard from '../common/containers/AppCard';
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from 'gatsby-background-image';
 import withSizes from 'react-sizes';
+import { MobileOnlyDiv, DesktopOnlyDiv } from '../common/containers/MobileRender';
 
 const ContentDiv = styled.div`
   margin: 0px auto;
@@ -66,105 +67,24 @@ const StyledBackgroundSection = styled(BackgroundImage)`
   background-size: 100% auto;
   /* background-size: cover; */
   background-color: transparent;
-`
+`;
 
-function smallScreen(apps, img) {
-  return (
-    <StyledBackgroundSection
-      Tag="section"
-      // className={className}
-      fluid={img}
-    >
-      <Section>
-        <ContentDiv>
-          <PhoneDiv>
-            <div className="device device-iphone-x">
-              <div className="device-frame">
-                <AppArea>
-                  <div>
-                    <h1>Outros apps</h1>
-                    {
-                      apps.map((app, key) => (
-                        <AppCard
-                          key={key}
-                          title={app.title}
-                          description={app.description}
-                          link={app.link}
-                          img={app.img}
-                        />
-                      ))
-                    }
-                  </div>
-                  <div>
-                    {/* <PrimaryButton>
-                      ver todos os apps
-                    </PrimaryButton> */}
-                    <Spacer/>
-                  </div>
-                </AppArea>
-              </div>
-              <div className="device-stripe"></div>
-              <div className="device-header"></div>
-              <div className="device-sensors"></div>
-              <div className="device-btns"></div>
-              <div className="device-power"></div>
-            </div>
-          </PhoneDiv>
-        </ContentDiv>
-      </Section>
-    </StyledBackgroundSection>
-  );
-}
+const FlexContent = styled.div`
+  display: flex;
+  flex-direction: column;
 
+  p {
+    font-size: 18px;
+  }
+`;
 
-function bigScreen(apps, img) {
-  return (
-    <StyledBackgroundSection
-      Tag="section"
-      // className={className}
-      fluid={img}
-      backgroundColor={`#040e18`}
-    >
-      <ShowcaseSection>
-        <ContentDiv>
-          <div className="device device-iphone-x">
-            <div className="device-frame">
-              <AppArea>
-                <div>
-                  <h1>Outros apps</h1>
-                  {
-                    apps.map((app, key) => (
-                      <AppCard
-                        key={key}
-                        title={app.title}
-                        description={app.description}
-                        link={app.link}
-                        img={app.img}
-                      />
-                    ))
-                  }
-                </div>
-                <div>
-                  {/* <PrimaryButton>
-                    ver todos os apps
-                  </PrimaryButton> */}
-                  <Spacer/>
-                </div>
-              </AppArea>
-            </div>
-            <div className="device-stripe"></div>
-            <div className="device-header"></div>
-            <div className="device-sensors"></div>
-            <div className="device-btns"></div>
-            <div className="device-power"></div>
-          </div>
-        </ContentDiv>
-      </ShowcaseSection>
-    </StyledBackgroundSection>
-  );
-}
-
-
+const Title = styled.div`
+  font-size: 36px;
+  @media (max-width: ${theme.limitSize}px) {
+    text-align: left;
+    width: 100%;
+  }
+`;
 
 function Showcase(props) {
   const data = useStaticQuery(graphql`
@@ -235,10 +155,97 @@ function Showcase(props) {
   ];
   const img = data.bgImg.childImageSharp.fluid;
 
-  let renderSmall = props.isSmall;
-
   return (
-    <>{renderSmall ? smallScreen(apps, img) : bigScreen(apps, img)}</>
+    <>
+    <Section>
+      <FlexContent>
+        <Title>Outros apps</Title>
+      </FlexContent>
+    </Section>
+    <StyledBackgroundSection
+      Tag="section"
+      // className={className}
+      fluid={img}
+      // backgroundColor={`#040e18`}
+    >
+      <MobileOnlyDiv>
+        <Section>
+          <ContentDiv>
+            <PhoneDiv>
+              <div className="device device-iphone-x">
+                <div className="device-frame">
+                  <AppArea>
+                    <div>
+                      <h1>Outros apps</h1>
+                      {
+                        apps.map((app, key) => (
+                          <AppCard
+                            key={key}
+                            title={app.title}
+                            description={app.description}
+                            link={app.link}
+                            img={app.img}
+                          />
+                        ))
+                      }
+                    </div>
+                    <div>
+                      {/* <PrimaryButton>
+                        ver todos os apps
+                      </PrimaryButton> */}
+                      <Spacer/>
+                    </div>
+                  </AppArea>
+                </div>
+                <div className="device-stripe"></div>
+                <div className="device-header"></div>
+                <div className="device-sensors"></div>
+                <div className="device-btns"></div>
+                <div className="device-power"></div>
+              </div>
+            </PhoneDiv>
+          </ContentDiv>
+        </Section>
+      </MobileOnlyDiv>
+      <DesktopOnlyDiv>
+        <ShowcaseSection>
+          <ContentDiv>
+            <div className="device device-iphone-x">
+              <div className="device-frame">
+                <AppArea>
+                  <div>
+                    <h1>Outros apps</h1>
+                    {
+                      apps.map((app, key) => (
+                        <AppCard
+                          key={key}
+                          title={app.title}
+                          description={app.description}
+                          link={app.link}
+                          img={app.img}
+                        />
+                      ))
+                    }
+                  </div>
+                  <div>
+                    {/* <PrimaryButton>
+                      ver todos os apps
+                    </PrimaryButton> */}
+                    <Spacer/>
+                  </div>
+                </AppArea>
+              </div>
+              <div className="device-stripe"></div>
+              <div className="device-header"></div>
+              <div className="device-sensors"></div>
+              <div className="device-btns"></div>
+              <div className="device-power"></div>
+            </div>
+          </ContentDiv>
+        </ShowcaseSection>
+      </DesktopOnlyDiv>
+    </StyledBackgroundSection>
+    </>
   );
 }
 const mapSizesToProps = sizes => ({

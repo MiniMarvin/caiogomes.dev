@@ -81,47 +81,6 @@ const Spacer = styled.div`
   height: 20px;
 `;
 
-function smallScreen(props) {
-  return(
-    <div>
-      <Section>
-        <MobileOnlyDiv>
-          <FlexContent>
-            <Title>{props.title}</Title>
-          </FlexContent>
-        </MobileOnlyDiv>
-        <ContentDiv>
-          <PhoneDiv>
-            <div className="device device-iphone-8">
-              <div className="device-frame">
-                {props.children}
-              </div>
-              <div className="device-stripe"></div>
-              <div className="device-header"></div>
-              <div className="device-sensors"></div>
-              <div className="device-btns"></div>
-              <div className="device-power"></div>
-            </div>
-          </PhoneDiv>
-          <ButtonDiv>
-            <SecondaryButton href={props.link} target='_blank' width='300px'>acesse agora o aplicativo</SecondaryButton>
-          </ButtonDiv>
-          <div></div>
-        </ContentDiv>
-      </Section>
-      <Section>
-        <FlexContent>
-          <Title>{props.title}</Title>
-          <Description>{props.description}</Description>
-          <PrimaryButton href='https://forms.gle/pXbtucfzxaQhSQV26'>
-            {props.ctaTitle}
-          </PrimaryButton>
-        </FlexContent>
-      </Section>
-    </div>
-  );
-}
-
 function Project(props) {
   return(
   <Partial direction={props.direction} id={props.id}>

@@ -53,7 +53,11 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:card`,
-          content: `desenvolvedor de produtos digitais em recife e divulgador de conhecimentos em tecnologia`,
+          content: `summary`,
+        },
+        {
+          name: `twitter:site`,
+          content: `@caiogomes_dev`,
         },
         {
           name: `twitter:creator`,

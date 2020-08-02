@@ -33,7 +33,7 @@ function Contact(props) {
         <Title>contato</Title>
         <Text>além disso estou sempre ativo nas redes sociais, então se quiser 
             acompanhar a produção de apps, saber sobre novidades de tecnologia 
-            ou ver ideias incríveis, estou disponíveis através de 
+            ou ver ideias incríveis, estou disponível através de 
             <DesktopOnlySpan>
             <br/>
             </DesktopOnlySpan>

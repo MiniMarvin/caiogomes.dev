@@ -72,7 +72,7 @@ const aboutText = 'Olá! Bem, como você já sabe, crio produtos digitais em rec
 meu processo é de entender os problemas do negócio e conceber um app que que cause \
 impacto. comecei a desenvolver software aos 12 anos e já ganhei algumas competições \
 internacionais como scholarship na WWDC da Apple (2018 & 2019) e a ESDC da Intel (2018). \
-Além disso gosto muito de música e sou um grande intusiasta de saúde digital, se quiser\
+Além disso gosto muito de música e sou um grande intusiasta de saúde digital, se quiser \
 trabalhar comigo basta entrar em contato.';
 
 function About(props) {

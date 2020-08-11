@@ -64,31 +64,31 @@ const SpecialPartialCol = styled.div`
 `;
 
 function Blog(props) {
-  const data = useStaticQuery(graphql`
-    query {
-      allMediumPost(sort: { fields: [createdAt], order: DESC }) {
-        edges {
-          node {
-            id
-            title
-            virtuals {
-              subtitle
-              previewImage {
-                imageId
-              }
-            }
-            latestPublishedAt
-            author {
-              name
-              imageId
-              username
-            }
-            medium_id
-          }
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     allMediumPost(sort: { fields: [createdAt], order: DESC }) {
+  //       edges {
+  //         node {
+  //           id
+  //           title
+  //           virtuals {
+  //             subtitle
+  //             previewImage {
+  //               imageId
+  //             }
+  //           }
+  //           latestPublishedAt
+  //           author {
+  //             name
+  //             imageId
+  //             username
+  //           }
+  //           medium_id
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   const imagePath = (width, height, id) => `https://cdn-images-1.medium.com/fit/${width}/${height}/${id}`;
   const randomItem = (items) => items[Math.floor(Math.random() * (items.length))];
@@ -111,7 +111,7 @@ function Blog(props) {
           <SocialMedia github={false} gmail={false} whatsapp={false} />
         </PartialCol>
         <SpecialPartialCol>
-          <BlogPost>
+          {/* <BlogPost>
             {data.allMediumPost.edges.length === 0 ? null:
               (node => 
                 <MediumPost 
@@ -124,7 +124,7 @@ function Blog(props) {
                   href={mediumUrl(node.author.username, node.title, node.medium_id)}
                 ></MediumPost>)(randomItem(data.allMediumPost.edges).node)
             }
-          </BlogPost>
+          </BlogPost> */}
         </SpecialPartialCol>
       </Partial>
     </Section>

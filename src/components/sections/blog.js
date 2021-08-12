@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Section from './section';
-import CustomInput from '../common/inputs/custom-input';
-import {PrimaryButton} from '../common/buttons/buttons';
 import CommonLink from '../common/links/common-link';
 import theme from '../../theme';
 import { graphql, useStaticQuery } from "gatsby";
 import MediumPost from '../common/containers/MediumPost';
 import SocialMedia from '../common/links/SocialMedia';
 import withSizes from 'react-sizes';
-import {MobileOnlyDiv, DesktopOnlyDiv} from '../common/containers/MobileRender';
 
 const Title = styled.div`
   font-size: 36px;
@@ -27,24 +24,6 @@ const Partial = styled.div`
 const PartialCol = styled.div`
   width: 100%;
   overflow: hidden;
-`;
-
-const InputZone = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-
-  margin-top: 50px;
-  /* margin-bottom: 0px; */
-`;
-
-const Container1 = styled.div`
-  flex-grow: 2;
-  margin-right: 15px;
-`;
-
-const Container2 = styled.div`
-  flex-grow: 1;
 `;
 
 const BlogPost = styled.div`

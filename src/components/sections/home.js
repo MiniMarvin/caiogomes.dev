@@ -6,14 +6,12 @@ import { graphql, useStaticQuery } from "gatsby"
 import {
   PrimaryButton,
   SecondaryButton,
-  IconButton,
 } from "../common/buttons/buttons"
 import Section from "./section"
 import CommonLink from "../common/links/common-link"
 import SocialMedia from "../common/links/SocialMedia"
 import withSizes from "react-sizes"
 import {
-  MobileOnlySpan,
   DesktopOnlySpan,
   MobileOnlyDiv,
   DesktopOnlyDiv,

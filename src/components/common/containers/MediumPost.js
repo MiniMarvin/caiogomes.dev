@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Container = styled.div`
-    /* background-color: white; */
     background-color: white;
     border-width: 10px;
     border-radius: 20px;
@@ -60,11 +58,11 @@ function MediumPost(props) {
     return (
         <CustomLink href={props.href} target='_blank'>
             <Container>
-                <img src={props.img} />
+                <img src={props.img} alt={'imagem'}/>
                 <h1>{props.title}</h1>
                 <Subtitle>{props.description}</Subtitle>
                 <Row>
-                    <img src={props.userImg} />
+                    <img src={props.userImg} alt={'imagem'} />
                     <span>{props.username}</span>
                     {/* TODO: add clap count */}
                     <span>{props.date}</span>

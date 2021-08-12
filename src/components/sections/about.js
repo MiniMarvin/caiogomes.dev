@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Section from './section';
-import {PrimaryButton} from '../common/buttons/buttons';
-import theme from  '../../theme';
+import theme from '../../theme';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from "gatsby";
 import withSizes from 'react-sizes';
@@ -52,28 +51,9 @@ const CustomImg = styled(Img)`
   overflow: hidden;
 `;
 
-const FlexRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
-
-  @media (min-width:${theme.limitSize}px) {
-    h1,h2,h3,h4,h5,h6,p,span {
-      margin: 0px;
-      padding: 0px;
-    }
-  }
-  
-`;
-
 const aboutTitle = 'Quem é caio?';
 
-const aboutText = 'Olá! Bem, como você já sabe, crio produtos digitais em recife para resolver um problema específico, \
-meu processo é de entender os problemas do negócio e conceber um app que que cause \
-impacto. comecei a desenvolver software aos 12 anos e já ganhei algumas competições \
-internacionais como scholarship na WWDC da Apple (2018 & 2019) e a ESDC da Intel (2018). \
-Além disso gosto muito de música e sou um grande intusiasta de saúde digital, se quiser \
-trabalhar comigo basta entrar em contato.';
+const aboutText = "Olá! Bem, como você já sabe, crio produtos digitais em recife para resolver um problema específico, meu processo é de entender os problemas do negócio e conceber um app que que cause  impacto. comecei a desenvolver software aos 12 anos e já ganhei algumas competições internacionais como scholarship na WWDC da Apple (2018 & 2019) e a ESDC da Intel (2018). Além disso gosto muito de música e sou um grande intusiasta de saúde digital, se quiser trabalhar comigo basta entrar em contato.";
 
 function About(props) {
   const data = useStaticQuery(graphql`

@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Section from './section';
-// import '../../styles/responsive-device.css';
-import { PrimaryButton } from '../common/buttons/buttons';
 import theme from '../../theme';
 import AppCard from '../common/containers/AppCard';
 import { graphql, useStaticQuery } from "gatsby";

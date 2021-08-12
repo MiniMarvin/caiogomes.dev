@@ -1,8 +1,32 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const contentfulConfig = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken:
+    process.env.CONTENTFUL_ACCESS_TOKEN ||
+    process.env.CONTENTFUL_DELIVERY_TOKEN,
+};
+
+if (process.env.CONTENTFUL_HOST) {
+  contentfulConfig.host = process.env.CONTENTFUL_HOST;
+  contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
+}
+
+const { spaceId, accessToken } = contentfulConfig;
+
+if (!spaceId || !accessToken) {
+  throw new Error(
+    "Contentful spaceId and the access token need to be provided."
+  );
+}
+
 module.exports = {
   siteMetadata: {
-    title: `produtos digitais, recife`,
-    description: `Portfolio de Caio Moreira Gomes, desenvolvedor de software com foco em produto`,
-    author: `@caiogomes_dev`,
+    title: `Tecnologia, Produto e Privacidade`,
+    description: `Blog de Caio Moreira Gomes, engenheiro de software e aficcionado por produto e privacidade.`,
+    author: `@caiogomesdev`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -21,46 +45,31 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-postcss`,
+    {
+      resolve: "gatsby-source-contentful",
+      options: contentfulConfig,
+    },
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: "GTM-5GCMPMH",
-  
-        // Include GTM in development.
-        //
-        // Defaults to false meaning GTM will only be loaded in production.
         includeInDevelopment: true,
-  
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        //
-        // Defaults to null
         defaultDataLayer: { platform: "gatsby" },
-  
-        // Specify optional GTM environment details.
-        // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
-        // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
-        // dataLayerName: "dataLayer",
-  
-        // Name of the event that is triggered
-        // on every Gatsby route change.
-        //
-        // Defaults to gatsby-route-change
-        // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
       },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
         trackingId: "UA-169936294-1",
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `caio gomes`,
+        name: `caio moreira gomes`,
         short_name: `cmg`,
         start_url: `/`,
         background_color: `#241C4F`,
